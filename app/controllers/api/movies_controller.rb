@@ -13,4 +13,10 @@ class Api::MoviesController < ApplicationController
     @movie = Movie.last(2)
     render 'movie.json.jb'
   end
+
+  def one_movie
+    input = params[:title]
+    @movie = Movie.find_by(title: input)
+    render 'movie.json.jb'
+  end
 end
