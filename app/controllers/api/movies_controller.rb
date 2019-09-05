@@ -14,7 +14,9 @@ class Api::MoviesController < ApplicationController
     @movie = Movie.new(
     title: params[:title],
     year: params[:year].to_i,
-    plot: params[:plot])
+    plot: params[:plot],
+    director: params[:director],
+    japanese: params[:japanese])
     render 'movie.json.jb'
     @movie.save
   end
@@ -24,6 +26,8 @@ class Api::MoviesController < ApplicationController
     @movie.title = params[:title] || @movie.title
     @movie.year = params[:year] || @movie.year
     @movie.plot = params[:plot] || @movie.plot
+    @movie.director = params[:director] || @movie.director
+    @movie.japanese = params[:japanese] || @movie.japanese
     @movie.save
     render 'movie.json.jb'
   end
