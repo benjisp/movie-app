@@ -17,8 +17,11 @@ class Api::MoviesController < ApplicationController
     plot: params[:plot],
     director: params[:director],
     japanese: params[:japanese])
-    render 'movie.json.jb'
-    @movie.save
+    if @movie.save
+      render 'movie.json.jb'
+    else
+      render json: {errors: @movie.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def update
@@ -28,8 +31,11 @@ class Api::MoviesController < ApplicationController
     @movie.plot = params[:plot] || @movie.plot
     @movie.director = params[:director] || @movie.director
     @movie.japanese = params[:japanese] || @movie.japanese
-    @movie.save
-    render 'movie.json.jb'
+    if @movie.save
+      render 'movie.json.jb'
+    else
+      render json: {errors: @movie.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def destroy
