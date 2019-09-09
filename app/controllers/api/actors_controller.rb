@@ -1,7 +1,7 @@
 class Api::ActorsController < ApplicationController
   
   def index
-    @actor = Actor.all
+    @actor = Actor.all.order(age: :desc)
     render 'actor.json.jb'
   end
 
