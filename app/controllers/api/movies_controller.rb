@@ -3,13 +3,13 @@ class Api::MoviesController < ApplicationController
   before_action :authenticate_admin, except: [:index, :show]
   
   def index
-    @movie = Movie.where(english: "true")
-    render 'movie.json.jb'
+    @movies = Movie.all
+    render 'index.json.jb'
   end
 
   def show
     @movie = Movie.find(params[:id])
-    render 'movie.json.jb'
+    render 'show.json.jb'
   end
 
   def create
@@ -20,7 +20,7 @@ class Api::MoviesController < ApplicationController
     director: params[:director],
     english: params[:english])
     if @movie.save
-      render 'movie.json.jb'
+      render 'show.json.jb'
     else
       render json: {errors: @movie.errors.full_messages}, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class Api::MoviesController < ApplicationController
     @movie.director = params[:director] || @movie.director
     @movie.english = params[:english] || @movie.english
     if @movie.save
-      render 'movie.json.jb'
+      render 'show.json.jb'
     else
       render json: {errors: @movie.errors.full_messages}, status: :unprocessable_entity
     end
@@ -47,6 +47,6 @@ class Api::MoviesController < ApplicationController
 
   def last_2_movies
     @movie = Movie.last(2)
-    render 'movie.json.jb'
+    render 'show.json.jb'
   end
 end
