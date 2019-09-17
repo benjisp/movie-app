@@ -13,5 +13,7 @@ Rails.application.routes.draw do
     get "/last_2" => "movies#last_2_movies"
     post "/users" => "users#create"
     post "/sessions" => "sessions#create"
+    get "/moviegenres" => "movie_genres#index"
+    post "/moviegenres" => "movie_genres#create"
   end
 end

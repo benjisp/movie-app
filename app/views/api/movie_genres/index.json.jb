@@ -1,0 +1,4 @@
+{
+  movie_id: @moviegenre.movie_id,
+  genre_id: @moviegenre.genre_id
+}
