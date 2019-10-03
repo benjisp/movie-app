@@ -12,7 +12,8 @@ Movie.create!([
   {title: "La La Land", year: 2016, plot: "A story about two people who try to pursue their dreams in L.A.", director: nil, english: true},
   {title: "Frozen", year: 2013, plot: "A story of a queen and a princess.", director: nil, english: true},
   {title: "The Dark Knight", year: 2008, plot: "Let's put a smile on that face.", director: "Christopher Nolan", english: false},
-  {title: "Chef", year: 2014, plot: "man cooks food", director: "Jon Favreau", english: nil}
+  {title: "Chef", year: 2014, plot: "man cooks food", director: "Jon Favreau", english: nil},
+  {title: "The Witch", year: 2014, plot: "a witch is cool", director: "Jon Smith", english: nil}
 ])
 MovieGenre.create!([
   {genre_id: 1, movie_id: 2},
