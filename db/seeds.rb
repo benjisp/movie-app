@@ -1,6 +1,3 @@
-Actor.create!([
-  {first_name: "Heath", last_name: "Ledger", known_for: "The Dark Knight", gender: "male", age: 30, movie_id: 6}
-])
 Genre.create!([
   {name: "romance"},
   {name: "fantasy"},
@@ -14,6 +11,9 @@ Movie.create!([
   {title: "The Dark Knight", year: 2008, plot: "Let's put a smile on that face.", director: "Christopher Nolan", english: false},
   {title: "Chef", year: 2014, plot: "man cooks food", director: "Jon Favreau", english: nil},
   {title: "The Witch", year: 2014, plot: "a witch is cool", director: "Jon Smith", english: nil}
+])
+Actor.create!([
+  {first_name: "Heath", last_name: "Ledger", known_for: "The Dark Knight", gender: "male", age: 30, movie_id: 6}
 ])
 MovieGenre.create!([
   {genre_id: 1, movie_id: 2},
